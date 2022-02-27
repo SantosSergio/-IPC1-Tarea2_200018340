@@ -21,6 +21,7 @@ public class Ventana extends javax.swing.JFrame {
     String clave = "200018340";
     String titulo;
     String id;
+    Mostrar mi = new Mostrar();
     
     
     
@@ -29,7 +30,6 @@ public class Ventana extends javax.swing.JFrame {
      */
     public Ventana() {
         initComponents();
-        
         this.titulo ="Inicio de Sesion";       
         setSize(425,350);
         setTitle(titulo);
@@ -47,13 +47,16 @@ public class Ventana extends javax.swing.JFrame {
         }
         if(txtUsuario.getText().equals(nombre) && clave.equals(id))
             
-            JOptionPane.showMessageDialog(null, "Bienvenido "+ nombre + " "+ apellido + "\nTu contraseña es:" 
-              + " "+ clave);
-            
-        else
-            JOptionPane.showMessageDialog(null, "Por favor, introduzca credenciales validas");
+            MostrarInfo();   
+        else    
+        JOptionPane.showMessageDialog(null, "Por favor, introduzca credenciales validas");
     }
-          
+    public void MostrarInfo(){
+        mi.setVisible(true);
+        mi.txtRecibeUsuario.setText(nombre+ " "+apellido);
+        mi.txtRecibePass.setText(clave);
+        
+    }      
     public void Borrar(){
         txtUsuario.setText(" ");
         txtPassword.setText("");
